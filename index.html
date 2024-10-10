@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futemax Clone</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>NA HORA DO FUT</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="matches">
+            <h2>CLIQUE EM "ASSISTIR AO JOGO"</h2>
+            <h2>🟥🟥🟥SE A PÁGINA FOR PARA OUTRO SITE, CLIQUE NO BOTÃO DE VOLTAR DO SEU CELULAR!!🟥🟥🟥</h2>
+
+            <div class="match">
+                <h3>CORINTHIANS X FLAMENGO</h3>
+                <p>Data: 12/10/2024</p>
+                <a href="#" class="watch-button" data-url="https://embedmax.site/tvl/sportv1.php">Assistir ao jogo</a>
+                <div class="video-frame" style="display: none;">
+                    <iframe class="video-player" src="" frameborder="0" allowfullscreen style="width: 300px; height: 150px;"></iframe>
+                </div>
+            </div>
+
+            <div class="match">
+                <h3>VASCO X ATLÉTICO-MG</h3>
+                <p>Data: 13/10/2024</p>
+                <a href="#" class="watch-button" data-url="https://embedmax.site/tvl/globobrasilia.php">Assistir ao jogo</a>
+                <div class="video-frame" style="display: none;">
+                    <iframe class="video-player" src="" frameborder="0" allowfullscreen style="width: 300px; height: 150px;"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Futemax Clone. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.watch-button').forEach(button => {
+            button.addEventListener('click', function(event) {
+                event.preventDefault(); // Evita o comportamento padrão do link
+                
+                // Esconde todos os outros frames de vídeo
+                document.querySelectorAll('.video-frame').forEach(frame => {
+                    frame.style.display = 'none';
+                });
+                
+                // Exibe o iframe correspondente ao botão clicado
+                const videoFrame = button.nextElementSibling;
+                const iframe = videoFrame.querySelector('iframe');
+                const url = button.getAttribute('data-url');
+                
+                iframe.src = url; // Define o src do iframe
+                videoFrame.style.display = 'block'; // Exibe o iframe
+            });
+        });
+    </script>
+</body>
+</html>
